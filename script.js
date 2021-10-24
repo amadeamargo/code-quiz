@@ -52,13 +52,18 @@ var startButton = document.getElementById("start-btn")
 var nextButton = document.getElementById("next-btn")
 var restartButton = document.getElementById("restart-btn")
 
-startButton.addEventListener('click',displayTimeLeft);
+startButton.addEventListener('click',startQuiz);
 
 
 
 var questionBox= document.getElementById("quiz-box")
 var secondsLeft = 120;
 var timeEl = document.querySelector(".timer-seconds")
+
+function startQuiz(){
+    displayTimeLeft();
+    scrollDown();
+}
 
 function displayTimeLeft() {
   var timerInterval = setInterval(function() {
