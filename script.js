@@ -54,8 +54,6 @@ var restartButton = document.getElementById("restart-btn")
 
 startButton.addEventListener('click',startQuiz);
 
-
-
 var questionBox= document.getElementById("quiz-box")
 var secondsLeft = 120;
 var timeEl = document.querySelector(".timer-seconds")
