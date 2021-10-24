@@ -50,16 +50,26 @@
 
 var startButton = document.getElementById("start-btn")
 var questionBox= document.getElementById("quiz-box")
+var secondsLeft = 20;
+
 
 startButton.addEventListener('click', startQuiz)
 
+function displayTimeLeft() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds.";
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      // nextQuestion();
+    }
+  }, 1000);
+
 function startQuiz(){
-    console.log ("started quiz")
-    setInterval()
-
-
-    nextQuestion()
-    
+    console.log ("quiz has started")
+    displayTimeLeft()
+    // nextQuestion()   
 }
 
 
@@ -67,7 +77,25 @@ function nextQuestion(){
 
 }
 
-function selectAnswer(){
+function result(){
+    var score = 0;
+    if (document.getElementById('correct-one').checked){
+        score++;
+    }
+    if (document.getElementById('correct-two').checked){
+        score++;
+    }
+    if (document.getElementById('correct-three').checked){
+        score++;
+    }
+    if (document.getElementById('correct-four').checked){
+        score++;
+    }
+    if (document.getElementById('correct-five').checked){
+        score++;
+    }
+}
 
-
+function restartQuiz(){
+    startQuiz()
 }
