@@ -49,53 +49,60 @@
 
 
 var startButton = document.getElementById("start-btn")
+var nextButton = document.getElementById("next-btn")
+var restartButton = document.getElementById("restart-btn")
+
+startButton.addEventListener('click',displayTimeLeft);
+
+
+
 var questionBox= document.getElementById("quiz-box")
-var secondsLeft = 20;
-
-
-startButton.addEventListener('click', startQuiz)
+var secondsLeft = 120;
+var timeEl = document.querySelector(".timer-seconds")
 
 function displayTimeLeft() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds.";
+    timeEl.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      // nextQuestion();
     }
   }, 1000);
-
-function startQuiz(){
-    console.log ("quiz has started")
-    displayTimeLeft()
-    // nextQuestion()   
 }
 
-
-function nextQuestion(){
-
+nextButton.addEventListener('click', scrollDown);
+function scrollDown(){
+    window.scrollBy(0, 800)
 }
+
 
 function result(){
-    var score = 0;
     if (document.getElementById('correct-one').checked){
-        score++;
-    }
+        console.log(secondsLeft);}
+        else {
+            secondsLeft -10
+        }
     if (document.getElementById('correct-two').checked){
-        score++;
-    }
+        score++;}
+        else {
+            secondsLeft -10
+        }
     if (document.getElementById('correct-three').checked){
-        score++;
-    }
+        score++;}
+        else {
+            secondsLeft -10
+        }
     if (document.getElementById('correct-four').checked){
-        score++;
-    }
+        score++;}
+        else {
+            secondsLeft -10
+        }
     if (document.getElementById('correct-five').checked){
-        score++;
-    }
+        score++;}
+        else {
+            secondsLeft -10
+        }
+    document.write("You answered " + score + " out of 5 questions correct!");
 }
 
-function restartQuiz(){
-    startQuiz()
-}
